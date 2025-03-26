@@ -1,0 +1,70 @@
+.description-section {
+    margin-top: 3rem;
+    width: 100%;
+  }
+  
+  .description-content {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .text-content {
+    display: block;
+    width: 60%; /* Takes 60% of width */
+    float: left; /* Floats left */
+  }
+  
+  .desc-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    padding-left: 0; /* No left padding */
+  }
+  
+  .description-text {
+    color: black;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align:start;
+    padding-left: 0; /* No left padding */
+  }
+  
+  .description-image {
+    display: block;
+    width: 35%; /* Takes 35% of width */
+    float: right; /* Floats right */
+    text-align: right; /* Aligns image to right */
+  }
+  
+  .terms-logo {
+    max-height: 250px; /* Reduced size */
+    width: auto;
+  }
+  
+  /* Clearfix for floated elements */
+  .description-content::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Mobile */
+  @media (max-width: 768px) {
+    .text-content,
+    .description-image {
+      width: 100%;
+      float: none;
+    }
+    
+    .description-image {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    
+    .terms-logo {
+      max-height: 200px;
+    }
+  }
