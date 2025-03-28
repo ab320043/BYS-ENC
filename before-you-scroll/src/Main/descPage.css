@@ -1,70 +1,146 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap") format('woff2');
+}
+
 .description-section {
-    margin-top: 3rem;
-    width: 100%;
+  background: linear-gradient(135deg, #7209b7 0%, #480ca8 100%);
+  background-size: cover;
+  padding: 3rem 2rem;
+  border-radius: 30px;
+  margin: 4rem auto;
+  width: 90%;
+  max-width: 1400px;
+  box-shadow: 0 10px 30px rgba(114, 9, 183, 0.3);
+  transition: all 0.5s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.description-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(114, 9, 183, 0.4);
+}
+
+.description-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  transform: scale(0);
+  transition: transform 0.8s ease;
+}
+
+.description-section:hover::before {
+  transform: scale(1);
+}
+
+.description-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.text-content {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.desc-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.desc-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: #ee418f;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.description-section:hover .desc-title::after {
+  width: 400px;
+  background: #ee418f;
+}
+
+.description-text {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 700px;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.description-text p {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.description-text strong {
+  color: #ffbe0b;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .description-content {
-    display: block;
-    max-width: 1200px;
-    margin: 0 auto;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .text-content {
-    display: block;
-    width: 60%; /* Takes 60% of width */
-    float: left; /* Floats left */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .description-section {
+    width: 95%;
+    padding: 2rem 1.5rem;
   }
   
   .desc-title {
     font-size: 2rem;
-    font-weight: 700;
-    color: black;
-    margin-bottom: 1.5rem;
-    text-align: left;
-    padding-left: 0; /* No left padding */
   }
   
   .description-text {
-    color: black;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
-    text-align:start;
-    padding-left: 0; /* No left padding */
   }
-  
-  .description-image {
-    display: block;
-    width: 35%; /* Takes 35% of width */
-    float: right; /* Floats right */
-    text-align: right; /* Aligns image to right */
-  }
-  
-  .terms-logo {
-    max-height: 250px; /* Reduced size */
-    width: auto;
-  }
-  
-  /* Clearfix for floated elements */
-  .description-content::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Mobile */
-  @media (max-width: 768px) {
-    .text-content,
-    .description-image {
-      width: 100%;
-      float: none;
-    }
-    
-    .description-image {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    
-    .terms-logo {
-      max-height: 200px;
-    }
-  }
+}

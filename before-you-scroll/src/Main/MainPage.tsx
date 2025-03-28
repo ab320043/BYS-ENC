@@ -8,6 +8,7 @@ import instaLogo from '../assets/instaLogo.png';
 import youtubeLogo from '../assets/youtubeLogo.png';
 
 import DescPage from '../Main/descPage';
+import FAQTeaser from '../Compnents/FAQTeaser';
 
 const MainPage = () => {
     // Animation effect for the title
@@ -48,6 +49,7 @@ const MainPage = () => {
         {/* New Description Section */}
         <DescPage/>
 
+        <FAQTeaser/>
 
       </div>
     );

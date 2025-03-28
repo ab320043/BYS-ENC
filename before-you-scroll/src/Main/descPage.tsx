@@ -1,5 +1,5 @@
 import './descPage.css';
-import termsLogo from '../assets/termsLogo.png';
+// import termsLogo from '../assets/termsLogo.png';
 
 const descPage = () => {
   return (
@@ -8,22 +8,20 @@ const descPage = () => {
         <h2 className="desc-title">About Our Website</h2>
         <div className="description-text">
           <p>
-            Lorem ipsum dolor sit amet. Ut sequi odit et explicabo commodi quo voluptatem adipisci. 
-            Et exercitationem eveniet et nisi reprehenderit et incidunt reprehenderit ut sequi illum.
-            Ea nisi rerum ad impedit omnis in dolore dicta sit delectus eveniet qui voluptatibus 
-            dolor et aspernatur voluptatum. Qui consequatur quia non esse omnis aut galisum quia
-            aut obcaecati quos. Nam sapiente explicabo rem iure autem cum corrupti amet est dicta dolor. 
-            Eos sint nemo quo earum labore sed similique itaque rem illo internos est modi molestias 
-            ut corrupti cumque est eveniet voluptatem.
+            Terms and conditions often bind you to agreements you may not want to make, 
+            so <strong>Before You Scroll</strong> is dedicated to transforming internet platforms' terms and conditions into something more accessible.
+             The length and use of heavy jargon often seen in terms and conditions intimidates people, 
+             so we wish to transform them into words the everyday user can read easily. 
+             Knowing your rights is important, so we made it easy.
           </p>
         </div>
-        <div className="description-image">
+        {/* <div className="description-image">
           <img 
             src={termsLogo} 
             alt="Terms and Conditions" 
             className="terms-logo" 
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

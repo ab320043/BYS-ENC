@@ -1,10 +1,11 @@
-import abys from '../assets/abys.png';
+
+import beforeLogo from '../assets/beforeLogo.png';
 import './headerStyle.css';
 
 const Header = () => {
     return (
         <header className="header">
-            <img src={abys} alt="Before You Scroll Logo" className="header__logo" />
+            <img src={beforeLogo} alt="Before You Scroll Logo" className="header__logo" />
         </header>
     );
 };

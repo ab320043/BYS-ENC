@@ -1,0 +1,151 @@
+/* Consistent with previous styling */
+.faq-teaser-section {
+    background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+    background-size: cover;
+    padding: 3.5rem 2rem;
+    border-radius: 30px;
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(67, 97, 238, 0.3);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .faq-teaser-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(67, 97, 238, 0.4);
+  }
+  
+  .faq-teaser-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: scale(0);
+    transition: transform 0.8s ease;
+  }
+  
+  .faq-teaser-section:hover::before {
+    transform: scale(1);
+  }
+  
+  .faq-teaser-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  .faq-teaser-text {
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .faq-teaser-button {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(90deg, #f72585 0%, #b5179e 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .faq-teaser-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s ease;
+  }
+  
+  .faq-teaser-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(247, 37, 133, 0.4);
+  }
+  
+  .faq-teaser-button:hover::before {
+    left: 100%;
+  }
+  
+  .faq-teaser-button:active {
+    transform: translateY(1px);
+  }
+  
+  .button-arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-teaser-button:hover .button-arrow {
+    transform: translateX(4px);
+  }
+  
+  /* Reused animations from previous component */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .faq-teaser-section {
+      padding: 2.5rem 1.5rem;
+      width: 95%;
+    }
+    
+    .faq-teaser-text {
+      font-size: 1.2rem;
+    }
+    
+    .faq-teaser-button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+    }
+  }

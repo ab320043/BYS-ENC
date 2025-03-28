@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: #e2b243;
+    background: #070649;
     padding: 10px 0;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
@@ -15,7 +15,7 @@
 }
 
 .header__logo {
-    height: 200px;
+    height: 250px;
     width: 250px;
     max-width: 80%;
 }
