@@ -1,5 +1,5 @@
 import './snapStyle.css';
-import Snapchat from '../assets/snapchat.png';
+import Snapchat from '../assets/Snapchat.png';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
