@@ -1,6 +1,6 @@
 import './MainPageStyle.css';
 import { useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // logos
 import snapLogo from '../assets/snapLogo.png';
@@ -11,6 +11,21 @@ import DescPage from '../Main/descPage';
 import FAQTeaser from '../Compnents/FAQTeaser';
 
 const MainPage = () => {
+
+  const navigate = useNavigate();
+
+  const handleInstagramClick = () => {
+    navigate('/instagram-terms'); // Make sure this matches your route
+  };
+
+  const handleSnapClick = () => {
+    navigate('/snapchat-terms');
+  };
+
+  const handleYoutubeClick = () => {
+    navigate('/youtube-terms');
+  };
+
     // Animation effect for the title
     useEffect(() => {
       const title = document.querySelector('.main-title');
@@ -24,25 +39,25 @@ const MainPage = () => {
         <h1 className="main-title">Supported Platforms</h1>
         
         <div className="platforms-container">
-          <div className="platform-item">
-            <a href="https://www.snapchat.com" target="_blank" rel="noopener noreferrer">
+          <div className="platform-item" onClick={handleSnapClick}>
+            <div className="platform-link">
               <img src={snapLogo} alt="Snapchat" className="platform-logo" />
               <p className="platform-name">Snapchat</p>
-            </a>
+            </div>
           </div>
           
-          <div className="platform-item">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <div className="platform-item" onClick={handleInstagramClick}>
+            <div className="platform-link">
               <img src={instaLogo} alt="Instagram" className="platform-logo" />
               <p className="platform-name">Instagram</p>
-            </a>
-          </div>
+            </div>
+        </div>
           
           <div className="platform-item">
-            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+            <div onClick={handleYoutubeClick} className="platform-link">
               <img src={youtubeLogo} alt="YouTube" className="platform-logo" />
               <p className="platform-name">YouTube</p>
-            </a>
+            </div>
           </div>
         </div>
 
