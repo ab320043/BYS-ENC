@@ -35,7 +35,7 @@
     display: block;
     width: 600px;
     height: 2px;
-    background: #2bb7cf;
+    background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
     margin: 1rem auto;
     transition: all 0.2s ease;
   }
@@ -50,19 +50,35 @@
   
   .platform-item {
     display: flex;
+    position: relative;
+    cursor: pointer;
     height: 100%;
     flex-direction: column;
     align-items: center;
     transition: all 0.3s ease;
   }
   
-  .platform-item:hover {
-    transform: translateY(-10px);
+  .platform-item::after {
+    content: 'Click to explore';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #6e45e2;
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .platform-item:hover::after {
+    opacity: 1;
+    bottom: -25px;
   }
   
   .platform-logo {
-    width: 220px;
-    height: 220px;
+    width: 185px;
+    height: 185px;
     object-fit: contain;
     border-radius: 30px;
     margin-bottom: 1rem;

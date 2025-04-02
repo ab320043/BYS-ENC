@@ -3,20 +3,60 @@
     src: url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap") format('woff2');
 }
 
-.video-container {
+/* Replace the video container styles with these */
+.text-container {
     position: absolute;
-    top: 100px; /* Match header height */
+    top: 100px;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 100px); /* Adjust for header height */
-    overflow: hidden;
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4a2f9b 0%, #2c9c92 100%);
 }
 
-.background-video {
-    width: 100vw;
-    height: 100%;
-    object-fit: cover;
+.animated-subtitle {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
+
+.animated-subtitle.visible {
+    opacity: 1;
+}
+
+.main-word {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.subtitle-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: white;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Keep all your existing styles below this point */
 
 .button-container {
     position: fixed;
@@ -41,14 +81,14 @@
 
 .get-started-btn {
     background: white;
-    color: #333;
-    padding: 1px 24px;
+    color: rgb(88, 88, 88);
+    padding: 1px 18px;
     width: 15%;
     min-width: 150px;
-    height: 50px;
+    height: 45px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 400;
     border: none;
     border-radius: 30px;
     box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.2);

@@ -1,7 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-
 import Header from '../Compnents/Header';
-import landingVideo from '../assets/landingVideo.mp4';
 import MainPage from '../Main/MainPage';
 import './pageHomeStyle.css';
 
@@ -9,17 +7,18 @@ const HomePage = () => {
     const bodyRef = useRef<HTMLDivElement>(null);
     const [showButton, setShowButton] = useState(true);
     const [isAtTop, setIsAtTop] = useState(true);
+    const [typedText, setTypedText] = useState("");
+    const fullText = "Understanding the usage of social media platforms";
+    const [showSubtitle, setShowSubtitle] = useState(false);
 
     const handleScroll = () => {
         bodyRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
         setShowButton(false);
         setTimeout(() => setShowButton(false), 100);
-      };
+    };
 
-
-      useEffect(() => {
+    useEffect(() => {
         const handleScrollEvent = () => {
-            // Only show button if scrolled all the way to top (video section)
             if (window.scrollY === 0) {
                 setShowButton(true);
                 setIsAtTop(true);
@@ -31,43 +30,55 @@ const HomePage = () => {
         window.addEventListener("scroll", handleScrollEvent);
         return () => window.removeEventListener("scroll", handleScrollEvent);
     }, []);
-    
 
-  return (
-    <>
-    {/* Header component */}
-      <Header />
+    // Typing animation effect
+    useEffect(() => {
+        setShowSubtitle(true);
+        let i = 0;
+        const typingInterval = setInterval(() => {
+            if (i < fullText.length) {
+                setTypedText(fullText.substring(0, i + 1));
+                i++;
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 100); // Adjust typing speed here
 
-    {/* Video background */}
-    <div 
-        className="video-container"
-      >
-        <video 
-          className="background-video"
-          src={landingVideo}
-          autoPlay
-          loop
-          muted
-        />
-      </div>
+        return () => clearInterval(typingInterval);
+    }, []);
 
+    return (
+        <>
+            <Header />
+            
+            {/* Animated text section replacing the video */}
+            <div className="text-container">
+                <div className={`animated-subtitle ${showSubtitle ? 'visible' : ''}`}>
+                    <h1 className="main-word">
+                        {typedText.substring(0, 13)} {/* "Understanding" */}
+                        <span className="cursor">|</span>
+                    </h1>
+                    <p className="subtitle-text">
+                        {typedText.substring(13)} {/* The rest of the text */}
+                    </p>
+                </div>
+            </div>
 
-    {/* move down Button */}
-    <div className={`button-container ${isAtTop && showButton ? 'visible' : 'hidden'}`}>
-        <button className="get-started-btn" onClick={handleScroll}>
-             Get Started
-        </button>
-    </div>
+            {/* move down Button */}
+            <div className={`button-container ${isAtTop && showButton ? 'visible' : 'hidden'}`}>
+                <button className="get-started-btn" onClick={handleScroll}>
+                    Get Started
+                </button>
+            </div>
 
-    <div className="spacer"></div>
+            <div className="spacer"></div>
 
-    {/* BodyPage component */}
-    <div ref={bodyRef} className="body-container">
-        <MainPage/>
-    </div>
-
-    </>
-  );
+            {/* BodyPage component */}
+            <div ref={bodyRef} className="body-container">
+                <MainPage/>
+            </div>
+        </>
+    );
 };
 
 export default HomePage;

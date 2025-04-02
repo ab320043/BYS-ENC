@@ -74,15 +74,15 @@
   left: 50%;
   transform: translateX(-50%);
   width: 120px;
-  height: 4px;
-  background: #ee418f;
+  height: 2px;
+  background: white;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 .description-section:hover .desc-title::after {
   width: 400px;
-  background: #ee418f;
+  background: white;
 }
 
 .description-text {

@@ -1,12 +1,12 @@
 import './FAQTeaserStyle.css';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FAQTeaser = () => {
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-//   const handleFAQClick = () => {
-//     navigate('/faq'); // Adjust the route as needed
-//   };
+  const handleFAQClick = () => {
+    navigate('/faq-page'); // Adjust the route as needed
+  };
 
   return (
     <div className="faq-teaser-section">
@@ -15,6 +15,7 @@ const FAQTeaser = () => {
           Don't scroll confused—find quick solutions to common questions.
         </p>
         <button 
+          onClick={handleFAQClick}
           className="faq-teaser-button" 
           aria-label="Navigate to FAQ section"
         >
