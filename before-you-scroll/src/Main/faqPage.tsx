@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { FiChevronDown, FiChevronUp, FiLock, FiShield, FiUser, FiGlobe, FiAlertCircle } from 'react-icons/fi';
+import { FiChevronDown, FiHome, FiLock, FiShield, FiUser, FiGlobe, FiAlertCircle } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import './FAQPage.css';
 
 const FAQPage = () => {
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
+  const navigate = useNavigate();
 
   const toggleCard = (index: number) => {
     setExpandedCards(prev =>
@@ -78,10 +80,15 @@ const FAQPage = () => {
 
   return (
     <div className="faq-container">
-      {/* Added Header */}
       <header className="faq-header">
+        <button className="home-button" onClick={() => navigate('/')}>
+          <FiHome size={24} />
+          <span>Home</span>
+        </button>
         <h1>Frequently Asked Questions</h1>
+        <div className="header-spacer"></div> {/* For balance */}
       </header>
+      
       <div className="faq-list">
         {faqs.map((faq, index) => (
           <div 
@@ -89,26 +96,23 @@ const FAQPage = () => {
             className={`faq-card ${expandedCards.includes(index) ? 'expanded' : ''} ${faq.category}`}
           >
             <div 
-              className="faq-header"
+              className="faq-card-header"
               onClick={() => toggleCard(index)}
               aria-expanded={expandedCards.includes(index)}
-              aria-controls={`faq-answer-${index}`}
             >
               <div className="faq-icon-container">
                 {faq.icon}
               </div>
               <h3 className="faq-question">{faq.question}</h3>
-              {expandedCards.includes(index) ? (
-                <FiChevronUp className="chevron" aria-hidden="true" />
-              ) : (
-                <FiChevronDown className="chevron" aria-hidden="true" />
-              )}
+              <div className={`chevron-container ${expandedCards.includes(index) ? 'expanded' : ''}`}>
+                <FiChevronDown className="chevron" />
+              </div>
             </div>
-            <div 
-              id={`faq-answer-${index}`}
-              className="faq-answer-container"
-            >
-              <p className="faq-answer">{faq.answer}</p>
+            
+            <div className="faq-answer-wrapper">
+              <div className="faq-answer">
+                <p>{faq.answer}</p>
+              </div>
             </div>
           </div>
         ))}

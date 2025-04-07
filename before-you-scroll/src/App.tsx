@@ -4,12 +4,14 @@ import InstagramPage from './Main/instagramPage';
 import SnapchatPage from './Main/snapchatPage';
 import YouTubePage from './Main/youtubePage';
 import FaqPage from './Main/faqPage';
+// import MainPage from '../Main/MainPage';
 
 const App = () => {
   return (
     <div className="w-full h-full">
       <Routes>
         <Route path="/" element={<PageHome />} />
+        {/* <Route path="/main" element={<MainPage />} /> */}
         <Route path="/instagram-terms" element={<InstagramPage />} />
         <Route path="/snapchat-terms" element={<SnapchatPage />} />
         <Route path="/youtube-terms" element={<YouTubePage />} />

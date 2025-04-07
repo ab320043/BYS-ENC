@@ -5,7 +5,7 @@ const FAQTeaser = () => {
   const navigate = useNavigate();
 
   const handleFAQClick = () => {
-    navigate('/faq-page'); // Adjust the route as needed
+    navigate('/faq-page'); 
   };
 
   return (
