@@ -5,6 +5,7 @@ import SnapchatPage from './Main/snapchatPage';
 import YouTubePage from './Main/youtubePage';
 import FaqPage from './Main/faqPage';
 // import MainPage from '../Main/MainPage';
+import Footer from './Compnents/footer';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/faq-page" element={<FaqPage />} />
         {/* Add more routes as needed */}
       </Routes>
+      <Footer />
     </div>
   )
 }

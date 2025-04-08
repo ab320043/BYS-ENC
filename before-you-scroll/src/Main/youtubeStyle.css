@@ -64,6 +64,25 @@
   height: 200px;
 }
 
+.youtube-source-badge {
+  display: inline-block;
+  background: rgba(255, 0, 0, 0.1);
+  color: #FF0000;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 10px;
+  font-weight: 500;
+  vertical-align: middle;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.youtube-source-badge:hover {
+  background: rgba(255, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
 /* Buttons - YouTube Theme */
 .youtube-back-button {
   background: #000;

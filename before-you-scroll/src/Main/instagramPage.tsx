@@ -68,6 +68,13 @@ const InstagramPage = () => {
             Activity
           </button>
           <button 
+            className={`tab-btn ${activeTab === 'content' ? 'active' : ''}`}
+            onClick={() => setActiveTab('content')}
+          >
+            <i className="tab-icon fas fa-copyright"></i>
+            Content
+          </button>
+          <button 
             className={`tab-btn ${activeTab === 'legal' ? 'active' : ''}`}
             onClick={() => setActiveTab('legal')}
           >
@@ -91,15 +98,15 @@ const InstagramPage = () => {
                   </li>
                   <li>
                     <strong>Respect for Others:</strong> Users should avoid harmful or discriminatory behavior.
-                    <span className="source-badge">Prohibited Activities</span>
+                    <span className="source-badge">Prohibited Activities Section</span>
                   </li>
                   <li>
-                    <strong>Content Responsibility:</strong> Users are responsible for their posts, ensuring compliance with Instagram's policies.
-                    <span className="source-badge">Prohibited Activities</span>
+                    <strong>Content Responsibility:</strong> Users are responsible for their posts, ensuring compliance with Instagram's policies (no hate speech, graphic violence, or illegal activities).
+                    <span className="source-badge">Prohibited Activities Section</span>
                   </li>
                   <li>
-                    <strong>Privacy Awareness:</strong> Users should be mindful of personal information shared.
-                    <span className="source-badge">Privacy Policy</span>
+                    <strong>Privacy Awareness:</strong> Users should be mindful of personal information shared, as Instagram collects data. Reviewing the Privacy Policy is recommended.
+                    <span className="source-badge">Privacy Policy Section</span>
                   </li>
                 </ul>
               </div>
@@ -108,13 +115,13 @@ const InstagramPage = () => {
                 <h3><i className="fas fa-child icon"></i> Age Restrictions</h3>
                 <ul>
                   <li>Users must be at least 13 years old (or the legal minimum age in their country) to create an account.
-                    <span className="source-badge">Basic Terms</span>
+                    <span className="source-badge">Basic Terms Section</span>
                   </li>
                   <li>Accounts operated by underage individuals will be terminated.
-                    <span className="source-badge">Basic Terms</span>
+                    <span className="source-badge">Basic Terms Section</span>
                   </li>
                   <li>Parents should monitor their children's online activity for compliance.
-                    <span className="source-badge">Basic Terms</span>
+                    <span className="source-badge">Basic Terms Section</span>
                   </li>
                 </ul>
               </div>
@@ -133,7 +140,7 @@ const InstagramPage = () => {
                     <span className="source-badge">Rights Section</span>
                   </li>
                   <li>
-                    <strong>Implications:</strong> Violations may lead to account removal, often without prior notice.
+                    <strong>Implications:</strong> Violations such as posting illegal content, harassment, or intellectual property infringement may lead to account removal, often without prior notice.
                     <span className="source-badge">Rights Section</span>
                   </li>
                 </ul>
@@ -148,23 +155,43 @@ const InstagramPage = () => {
                       <li>Harassment & spamming</li>
                       <li>Posting obscene or violent content</li>
                     </ul>
-                    <span className="source-badge">Prohibited Activities</span>
+                    <span className="source-badge">Prohibited Activities Section</span>
                   </li>
                   <li>Violating these policies may result in content removal, suspension, or termination.
-                    <span className="source-badge">Prohibited Activities</span>
+                    <span className="source-badge">Prohibited Activities Section</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'content' && (
+            <div className="tab-pane fade-in">
+              <h2><i className="fas fa-copyright header-icon"></i> Use of User Data & Content Ownership</h2>
+              
+              <div className="content-card">
+                <h3><i className="fas fa-copyright icon"></i> Content Ownership and License</h3>
+                <ul>
+                  <li>Users retain ownership of their content but grant Instagram a non-exclusive, royalty-free, transferable license to use, modify, and distribute it.
+                    <span className="source-badge">Rights Section</span>
+                  </li>
+                  <li>License End: The license ends when content is deleted, but copies may persist in backups.
+                    <span className="source-badge">Rights Section</span>
                   </li>
                 </ul>
               </div>
 
               <div className="content-card">
-                <h3><i className="fas fa-database icon"></i> Use of User Data & Content Ownership</h3>
-                <h4><i className="fas fa-copyright icon"></i> Content Ownership and License</h4>
+                <h3><i className="fas fa-database icon"></i> Use of User Data</h3>
                 <ul>
-                  <li>Users retain ownership of their content but grant Instagram a non-exclusive license.
-                    <span className="source-badge">Rights Section</span>
+                  <li>Instagram collects, stores, and shares personal data and usage patterns.
+                    <span className="source-badge">Privacy Policy Section</span>
                   </li>
-                  <li>License End: The license ends when content is deleted, but copies may persist in backups.
-                    <span className="source-badge">Rights Section</span>
+                  <li>Data may be shared with third parties, including advertisers for ad personalization.
+                    <span className="source-badge">Privacy Policy Section</span>
+                  </li>
+                  <li>Users should review the Privacy Policy to adjust their privacy settings.
+                    <span className="source-badge">Privacy Policy Section</span>
                   </li>
                 </ul>
               </div>
@@ -179,13 +206,13 @@ const InstagramPage = () => {
                 <h3><i className="fas fa-balance-scale icon"></i> Arbitration Agreement & Class Action Waiver</h3>
                 <ul>
                   <li>Disputes must be resolved through binding arbitration rather than court.
-                    <span className="source-badge">General Conditions</span>
+                    <span className="source-badge">General Conditions Section</span>
                   </li>
                   <li>Users waive the right to participate in class-action lawsuits.
-                    <span className="source-badge">General Conditions</span>
+                    <span className="source-badge">General Conditions Section</span>
                   </li>
                   <li>Arbitration decisions are final and cannot typically be appealed.
-                    <span className="source-badge">General Conditions</span>
+                    <span className="source-badge">General Conditions Section</span>
                   </li>
                 </ul>
               </div>
@@ -209,9 +236,11 @@ const InstagramPage = () => {
                 <h3><i className="fas fa-edit icon"></i> Modifications to Terms</h3>
                 <ul>
                   <li>Instagram can change its Terms of Use at any time.
-                    <span className="source-badge">General Conditions</span>
+                    <span className="source-badge">General Conditions Section</span>
                   </li>
-                  <li>Continued platform use implies acceptance of modified terms.</li>
+                  <li>Continued platform use implies acceptance of modified terms.
+                    <span className="source-badge">General Conditions Section</span>
+                  </li>
                 </ul>
               </div>
             </div>
