@@ -8,7 +8,7 @@ const HomePage = () => {
     const [showButton, setShowButton] = useState(true);
     const [isAtTop, setIsAtTop] = useState(true);
     const [typedText, setTypedText] = useState("");
-    const fullText = "Understanding the usage of social media platforms";
+    const fullText = "Never click 'Agree' blindly again Read simplified terms from major platforms like Instagram, X and Snapchat in plain English.";
     const [showSubtitle, setShowSubtitle] = useState(false);
 
     const handleScroll = () => {
@@ -55,11 +55,11 @@ const HomePage = () => {
             <div className="text-container">
                 <div className={`animated-subtitle ${showSubtitle ? 'visible' : ''}`}>
                     <h1 className="main-word">
-                        {typedText.substring(0, 13)} {/* "Understanding" */}
-                        <span className="cursor">|</span>
+                        {typedText.substring(0, 33)} 
                     </h1>
                     <p className="subtitle-text">
-                        {typedText.substring(13)} {/* The rest of the text */}
+                        {typedText.substring(33)}
+                        {/* <span className="cursor">|</span> */}
                     </p>
                 </div>
             </div>

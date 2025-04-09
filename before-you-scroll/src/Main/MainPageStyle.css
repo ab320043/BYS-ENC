@@ -14,7 +14,7 @@
   
   .main-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     color: rgb(0, 0, 0);
     margin-top: 2px;
@@ -43,9 +43,12 @@
   .platforms-container {
     display: flex;
     justify-content: center;
-    gap: 12rem;
+    gap: 5rem; /* Reduced from 12rem to fit four items better */
     flex-wrap: wrap;
     margin-top: 2rem;
+    max-width: 1200px; /* Match your main-content width */
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .platform-item {
@@ -56,12 +59,15 @@
     flex-direction: column;
     align-items: center;
     transition: all 0.3s ease;
+    flex: 0 0 calc(25% - 4rem); /* Each item takes 25% minus the gap */
+    max-width: 200px; /* Adjust as needed */
   }
   
   .platform-item::after {
     content: 'Click to explore';
     position: absolute;
-    bottom: -30px;
+    white-space: nowrap;
+    bottom: -60px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.8rem;
@@ -77,8 +83,8 @@
   }
   
   .platform-logo {
-    width: 185px;
-    height: 185px;
+    width: 170px;
+    height: 170px;
     object-fit: contain;
     border-radius: 30px;
     margin-bottom: 1rem;

@@ -1,5 +1,5 @@
 import './footerStyle.css';
-import { FaSnapchat, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaSnapchat, FaInstagram, FaYoutube, FaTwitter } from 'react-icons/fa';
 import { FiHelpCircle, FiHome } from 'react-icons/fi';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
@@ -30,6 +30,14 @@ const Footer = () => {
         buttonHover: 'rgba(255, 255, 255, 0.2)'
       };
     }
+    else if (location.pathname === '/x-terms') {
+      return { 
+        background: '#000',
+        color: 'white',
+        buttonBackground: 'rgba(255, 255, 255, 0.42)',
+        buttonHover: 'rgba(255, 255, 255, 0.42)'
+      };
+    }
     // Default style
     return { 
       background: 'linear-gradient(135deg, #7209b7 0%, #480ca8 100%)',
@@ -57,6 +65,10 @@ const Footer = () => {
             <Link to="/instagram-terms" className="social-link" style={{ color: currentStyle.color }}>
               <FaInstagram className="social-icon" style={{ color: currentStyle.color }} />
               <span className="social-text">Instagram</span>
+            </Link>
+            <Link to="/x-terms" className="social-link" style={{ color: currentStyle.color }}>
+              <FaTwitter className="social-icon" style={{ color: currentStyle.color }} />
+              <span className="social-text">X</span>
             </Link>
             <Link to="/youtube-terms" className="social-link" style={{ color: currentStyle.color }}>
               <FaYoutube className="social-icon" style={{ color: currentStyle.color }} />

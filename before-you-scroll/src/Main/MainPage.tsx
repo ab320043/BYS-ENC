@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import snapLogo from '../assets/snapLogo.png';
 import instaLogo from '../assets/instaLogo.png';
 import youtubeLogo from '../assets/youtubeLogo.png';
+import xLogo from '../assets/xLogo.png';
 
 import DescPage from '../Main/descPage';
 import FAQTeaser from '../Compnents/FAQTeaser';
@@ -16,6 +17,10 @@ const MainPage = () => {
 
   const handleInstagramClick = () => {
     navigate('/instagram-terms'); // Make sure this matches your route
+  };
+
+  const handleXClick = () => {
+    navigate('/x-terms'); // Make sure this matches your route
   };
 
   const handleSnapClick = () => {
@@ -36,7 +41,7 @@ const MainPage = () => {
   
     return (
       <div className="main-content">
-        <h1 className="main-title">Supported Platforms</h1>
+        <h1 className="main-title">Explore Terms & Conditions For</h1>
         
         <div className="platforms-container">
           <div className="platform-item" onClick={handleSnapClick}>
@@ -52,6 +57,13 @@ const MainPage = () => {
               <p className="platform-name">Instagram</p>
             </div>
         </div>
+
+        <div className="platform-item">
+            <div onClick={handleXClick} className="platform-link">
+              <img src={xLogo} alt="X" className="platform-logo" />
+              <p className="platform-name">X (Twitter)</p>
+            </div>
+          </div>
           
           <div className="platform-item">
             <div onClick={handleYoutubeClick} className="platform-link">
@@ -59,6 +71,7 @@ const MainPage = () => {
               <p className="platform-name">YouTube</p>
             </div>
           </div>
+
         </div>
 
         {/* New Description Section */}

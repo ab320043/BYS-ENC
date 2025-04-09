@@ -1,37 +1,38 @@
-/* youtubeStyle.css */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* xStyle.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 /* Base Styles */
-.youtube-page {
-  font-family: 'Roboto', sans-serif;
+.x-page {
+  font-family: 'Montserrat', sans-serif;
   color: #333;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0;
-  background-color: #f9f9f9;
+  background-color: #fafafa;
   min-height: 100vh;
 }
 
-/* Header - YouTube Red */
-.youtube-header-container {
+/* Header Container - Fixed and Full Width */
+.x-header-container {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  background: #FF0000; /* YouTube red */
+  background-color: #000;
   padding: 20px 0;
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.youtube-header-container.youtube-scrolled {
+.x-header-container.scrolled {
   padding: 10px 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.youtube-header {
+/* Header Content - Centered with Max Width */
+.x-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -39,54 +40,35 @@
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
+  height: 50px;
   transition: all 0.3s ease;
 }
 
-/* Logo */
-.youtube-logo-container {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
+.x-header-container.scrolled .x-header {
+  padding: 0 20px;
+}
+
+/* Logo Styles */
+.x-logo-container {
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.youtube-logo {
-  width: 250px;
-  height: 250px;
-  object-fit: contain;
+.x-logo {
+  height: 40px;
+  width: 40px;
   transition: all 0.3s ease;
 }
 
-.youtube-header-container.youtube-scrolled .youtube-logo {
-  width: 160px;
-  height: 200px;
+.x-header-container.scrolled .x-logo {
+  height: 35px;
+  width: 35px;
 }
 
-.youtube-source-badge {
-  display: inline-block;
-  background: rgba(255, 0, 0, 0.1);
-  color: #FF0000;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  margin-left: 10px;
-  font-weight: 500;
-  vertical-align: middle;
-  border: 1px solid rgba(255, 0, 0, 0.2);
-  transition: all 0.2s ease;
-}
-
-.youtube-source-badge:hover {
-  background: rgba(255, 0, 0, 0.15);
-  transform: translateY(-1px);
-}
-
-/* Buttons - YouTube Theme */
-.youtube-back-button {
-  background: #000;
-  color: white;
+/* Button Styles */
+.x-back-button {
+  background: rgba(255, 255, 255, 0.9);
   border: none;
   padding: 10px 20px;
   border-radius: 50px;
@@ -98,18 +80,22 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-size: 14px;
-  margin-left: 20px;
+  color: #333;
 }
 
-.youtube-back-button:hover {
-  background: #333;
+.x-back-button:hover {
+  background: white;
   transform: translateX(-5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.youtube-original-terms-btn {
+.x-arrow {
+  font-size: 16px;
+}
+
+.x-original-terms-btn {
   background: white;
-  color: #FF0000;
+  color: #000;
   border: none;
   padding: 10px 20px;
   border-radius: 50px;
@@ -120,25 +106,23 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 14px;
   white-space: nowrap;
-  margin-right: 20px;
 }
 
-.youtube-original-terms-btn:hover {
-  background: #f1f1f1;
+.x-original-terms-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Main Content */
-.youtube-content {
-  padding-top: 150px;
+/* Main Content - Starts Below Header */
+.x-content {
+  padding-top: 120px;
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 40px;
 }
 
-/* Tabs - YouTube Theme */
-.youtube-tabs-container {
+/* Tab Navigation */
+.x-tabs-container {
   display: flex;
   justify-content: center;
   margin: 30px 0;
@@ -146,7 +130,7 @@
   flex-wrap: wrap;
 }
 
-.youtube-tab-btn {
+.x-tab-btn {
   padding: 12px 25px;
   border: none;
   background: #f5f5f5;
@@ -164,26 +148,26 @@
   gap: 8px;
 }
 
-.youtube-tab-btn.youtube-active {
-  background: #FF0000;
+.x-tab-btn.active {
+  background: #000;
   color: white;
-  box-shadow: 0 5px 20px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
-.youtube-tab-btn:hover:not(.youtube-active) {
+.x-tab-btn:hover:not(.active) {
   background: #eee;
   color: #333;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.youtube-tab-icon {
+.x-tab-icon {
   font-size: 16px;
 }
 
-/* Content Cards - Red/White Theme */
-.youtube-tab-content {
+/* Tab Content */
+.x-tab-content {
   background: white;
   padding: 30px;
   border-radius: 16px;
@@ -194,35 +178,47 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.youtube-tab-pane {
-  animation: youtube-fadeIn 0.6s ease-out;
+.x-tab-pane {
+  animation: fadeIn 0.6s ease-out;
 }
 
-@keyframes youtube-fadeIn {
+@keyframes fadeIn {
   from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.youtube-content-card {
+/* Content Cards */
+.x-content-card {
   background: white;
   border-radius: 12px;
   padding: 20px;
   margin: 25px 0;
-  border-left: 4px solid #FF0000;
+  border-left: 4px solid #000;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   position: relative;
   overflow: hidden;
 }
 
-.youtube-content-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.1);
+.x-content-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+  pointer-events: none;
 }
 
-/* Typography - YouTube Colors */
-.youtube-page h2 {
-  color: #FF0000;
+.x-content-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+.x-tab-content h2 {
+  color: #000;
   margin-bottom: 30px;
   font-size: 28px;
   position: relative;
@@ -232,23 +228,22 @@
   gap: 12px;
 }
 
-.youtube-page h2::after {
+.x-tab-content h2::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 80px;
   height: 4px;
-  background: #FF0000;
+  background: #000;
   border-radius: 2px;
 }
 
-.youtube-header-icon {
-  color: #FF0000;
+.x-header-icon {
   font-size: 24px;
 }
 
-.youtube-page h3 {
+.x-tab-content h3 {
   color: #333;
   margin: 25px 0 15px;
   font-size: 20px;
@@ -257,148 +252,141 @@
   gap: 10px;
 }
 
-.youtube-icon {
-  color: #FF0000;
+.x-icon {
+  color: #000;
   font-size: 18px;
   width: 24px;
   text-align: center;
 }
 
 /* List Styles */
-.youtube-list {
+.x-tab-content ul {
   margin: 20px 0;
   padding-left: 0;
   line-height: 1.7;
 }
 
-.youtube-list-item {
+.x-tab-content li {
   margin-bottom: 15px;
   padding-left: 30px;
   position: relative;
   list-style-type: none;
 }
 
-.youtube-list-item::before {
+.x-tab-content li::before {
   content: '•';
-  color: #FF0000;
+  color: #000;
   font-size: 24px;
   position: absolute;
   left: 5px;
   top: -5px;
 }
 
-.youtube-nested-list {
+.x-tab-content .x-nested-list {
   margin-top: 10px;
   padding-left: 20px;
 }
 
-.youtube-nested-list .youtube-list-item {
+.x-tab-content .x-nested-list li {
   padding-left: 25px;
   margin-bottom: 8px;
 }
 
-.youtube-nested-list .youtube-list-item::before {
+.x-tab-content .x-nested-list li::before {
   content: '◦';
   font-size: 20px;
   top: -3px;
 }
 
+/* Source Badges */
+.x-source-badge {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 10px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .youtube-header {
+  .x-header {
     padding: 0 15px;
   }
   
-  .youtube-logo {
+  .x-logo {
     height: 30px;
-    width: auto;
   }
   
-  .youtube-header-container.youtube-scrolled .youtube-logo {
+  .x-header-container.scrolled .x-logo {
     height: 25px;
   }
   
-  .youtube-back-button, .youtube-original-terms-btn {
+  .x-back-button, .x-original-terms-btn {
     padding: 8px 15px;
     font-size: 13px;
   }
   
-  .youtube-content {
+  .x-content {
     padding-top: 100px;
   }
   
-  .youtube-tabs-container {
+  .x-tabs-container {
     margin: 20px 0;
     gap: 10px;
   }
   
-  .youtube-tab-btn {
+  .x-tab-btn {
     padding: 10px 15px;
     font-size: 14px;
     flex: 1 1 calc(50% - 10px);
     min-width: 120px;
   }
   
-  .youtube-tab-content {
+  .x-tab-content {
     padding: 20px;
     margin: 0 15px 20px;
     border-radius: 12px;
   }
   
-  .youtube-page h2 {
+  .x-tab-content h2 {
     font-size: 24px;
     margin-bottom: 20px;
   }
   
-  .youtube-page h3 {
+  .x-tab-content h3 {
     font-size: 18px;
   }
   
-  .youtube-content-card {
+  .x-content-card {
     padding: 15px;
     margin: 20px 0;
   }
 }
 
 @media (max-width: 480px) {
-  .youtube-header {
+  .x-header {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     padding: 10px;
   }
   
-  .youtube-back-button, .youtube-original-terms-btn {
+  .x-back-button, .x-original-terms-btn {
     padding: 6px 12px;
     font-size: 12px;
   }
   
-  .youtube-logo-container {
+  .x-logo {
     order: -1;
-    width: 100%;
-    position: relative;
-    left: auto;
-    transform: none;
-    justify-content: center;
-    height: auto;
-    margin: 5px 0;
+    width: 30px;
+    height: 30px;
   }
   
-  .youtube-logo {
-    width: 100%;
-    height: auto;
-    max-height: 30px;
-  }
-  
-  .youtube-tab-btn {
+  .x-tab-btn {
     flex: 1 1 100%;
-  }
-  
-  .youtube-page h2 {
-    font-size: 22px;
-  }
-  
-  .youtube-page h3 {
-    font-size: 16px;
   }
 }

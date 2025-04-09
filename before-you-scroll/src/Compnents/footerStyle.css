@@ -115,15 +115,7 @@
     font-weight: 500;
     line-height: 1.5;
     position: relative;
-    padding-left: 1.2rem;
     color: whitesmoke;
-  }
-  
-  .creator-item::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: rgba(0, 0, 0, 0.7);
   }
   
   .footer-bottom {
