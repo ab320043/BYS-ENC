@@ -1,6 +1,6 @@
+import { useEffect, useRef } from 'react';
+import { To, useNavigate } from 'react-router-dom';
 import './MainPageStyle.css';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 // logos
 import snapLogo from '../assets/snapLogo.png';
@@ -11,76 +11,140 @@ import xLogo from '../assets/xLogo.png';
 import DescPage from '../Main/descPage';
 import FAQTeaser from '../Compnents/FAQTeaser';
 
+const platformData = [
+  {
+    id: 'snapchat',
+    logo: snapLogo,
+    name: 'Snapchat',
+    effectiveDate: '2023-05-15',
+    lastUpdated: '2025-04-9',
+    route: '/snapchat-terms'
+  },
+  {
+    id: 'instagram',
+    logo: instaLogo,
+    name: 'Instagram',
+    effectiveDate: '2023-06-20',
+    lastUpdated: '2025-04-9',
+    route: '/instagram-terms'
+  },
+  {
+    id: 'x',
+    logo: xLogo,
+    name: 'X (Twitter)',
+    effectiveDate: '2023-04-01',
+    lastUpdated: '2025-04-9',
+    route: '/x-terms'
+  },
+  {
+    id: 'youtube',
+    logo: youtubeLogo,
+    name: 'YouTube',
+    effectiveDate: '2023-07-10',
+    lastUpdated: '2025-04-9',
+    route: '/youtube-terms'
+  }
+];
+
 const MainPage = () => {
-
   const navigate = useNavigate();
+  const platformRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
 
-  const handleInstagramClick = () => {
-    navigate('/instagram-terms'); // Make sure this matches your route
-  };
+  // Animation effects
+  useEffect(() => {
+    // Title animation
+    if (titleRef.current) {
+      titleRef.current.classList.add('animate');
+    }
 
-  const handleXClick = () => {
-    navigate('/x-terms'); // Make sure this matches your route
-  };
-
-  const handleSnapClick = () => {
-    navigate('/snapchat-terms');
-  };
-
-  const handleYoutubeClick = () => {
-    navigate('/youtube-terms');
-  };
-
-    // Animation effect for the title
-    useEffect(() => {
-      const title = document.querySelector('.main-title');
-      if (title) {
-        title.classList.add('animate');
+    // Intersection Observer for platform cards
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       }
-    }, []);
-  
-    return (
-      <div className="main-content">
-        <h1 className="main-title">Explore Terms & Conditions For</h1>
-        
-        <div className="platforms-container">
-          <div className="platform-item" onClick={handleSnapClick}>
-            <div className="platform-link">
-              <img src={snapLogo} alt="Snapchat" className="platform-logo" />
-              <p className="platform-name">Snapchat</p>
-            </div>
-          </div>
-          
-          <div className="platform-item" onClick={handleInstagramClick}>
-            <div className="platform-link">
-              <img src={instaLogo} alt="Instagram" className="platform-logo" />
-              <p className="platform-name">Instagram</p>
-            </div>
-        </div>
-
-        <div className="platform-item">
-            <div onClick={handleXClick} className="platform-link">
-              <img src={xLogo} alt="X" className="platform-logo" />
-              <p className="platform-name">X (Twitter)</p>
-            </div>
-          </div>
-          
-          <div className="platform-item">
-            <div onClick={handleYoutubeClick} className="platform-link">
-              <img src={youtubeLogo} alt="YouTube" className="platform-logo" />
-              <p className="platform-name">YouTube</p>
-            </div>
-          </div>
-
-        </div>
-
-        {/* New Description Section */}
-        <DescPage/>
-
-        <FAQTeaser/>
-
-      </div>
     );
+
+    const currentRefs = platformRefs.current;
+    currentRefs.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      currentRefs.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
+  const handlePlatformClick = (route: To) => {
+    navigate(route);
   };
-  
-  export default MainPage;
+
+  const formatDate = (dateString: string | number | Date) => {
+    const options = { year: "numeric", month: "short", day: "numeric" } as const;
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
+
+  return (
+    <div className="main-content">
+      <h1 ref={titleRef} className="main-title">
+        Explore Terms & Conditions For
+      </h1>
+      
+      <div className="platforms-container">
+        {platformData.map((platform, index) => (
+          <div 
+            key={platform.id}
+            ref={(el) => { platformRefs.current[index] = el; }}
+            className="platform-card"
+            onClick={() => handlePlatformClick(platform.route)}
+          >
+            <div className="platform-content">
+              <div className="platform-logo-container">
+                <img 
+                  src={platform.logo} 
+                  alt={platform.name} 
+                  className="platform-logo" 
+                />
+              </div>
+              <div className="platform-info">
+                <h3 className="platform-name">{platform.name}</h3>
+                <div className="platform-meta">
+                  <div className="meta-badge">
+                    <span className="meta-label">Effective since</span>
+                    <span className="meta-value">{formatDate(platform.effectiveDate)}</span>
+                  </div>
+                  <div className="meta-badge">
+                    <span className="meta-label">Last updated</span>
+                    <span className="meta-value">{formatDate(platform.lastUpdated)}</span>
+                  </div>
+                </div>
+                <div className="view-terms-button">
+                  <span>View Terms</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" 
+                          strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <DescPage/>
+      <FAQTeaser/>
+    </div>
+  );
+};
+
+export default MainPage;

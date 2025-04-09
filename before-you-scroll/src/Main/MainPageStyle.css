@@ -1,140 +1,216 @@
 @font-face {
   font-family: 'Montserrat';
   src: url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap") format('woff2');
- }
- 
+}
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .main-content {
-    text-align: center;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 115px;
+  text-align: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 115px;
+}
 
-  }
-  
+.main-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  background: #2d3748;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-top: 2px;
+  margin-bottom: 3rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.5s ease-out;
+}
+
+.main-title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platforms-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.platform-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+}
+
+.platform-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.platform-card:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-5px);
+}
+
+.platform-content {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.platform-logo-container {
+  flex: 0 0 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 1rem;
+  transition: var(--transition);
+}
+
+.platform-card:hover .platform-logo-container {
+  box-shadow: #2d3748 0px 0px 0px 2px, var(--primary-gradient) 0px 0px 0px 4px;
+}
+
+.platform-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: var(--transition);
+  border-radius: 30px;
+}
+
+.platform-card:hover .platform-logo {
+  transform: scale(1.1);
+}
+
+.platform-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.info-left {
+  flex: 1;
+}
+
+/* Modern button styles */
+.view-terms-button {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(110, 69, 226, 0.2);
+  margin-left: 1.5rem;
+}
+
+.view-terms-button svg {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.view-terms-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(110, 69, 226, 0.3);
+}
+
+.view-terms-button:hover svg {
+  transform: translateX(3px);
+}
+
+
+.platform-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.platform-meta {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-right: 4rem;
+}
+
+.meta-badge {
+  background: rgba(110, 69, 226, 0.1);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #6e45e2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meta-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .main-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: rgb(0, 0, 0);
-    margin-top: 2px;
-    margin-bottom: 3rem;
-    position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.5s ease-out;
+    font-size: 2rem;
   }
-  
-  .main-title.animate {
-    opacity: 0.5;
-    transform: translateY(0);
-  }
-  
-  .main-title::after {
-    content: '';
-    display: block;
-    width: 600px;
-    height: 2px;
-    background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
-    margin: 1rem auto;
-    transition: all 0.2s ease;
-  }
-  
-  .platforms-container {
-    display: flex;
-    justify-content: center;
-    gap: 5rem; /* Reduced from 12rem to fit four items better */
-    flex-wrap: wrap;
-    margin-top: 2rem;
-    max-width: 1200px; /* Match your main-content width */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .platform-item {
-    display: flex;
-    position: relative;
-    cursor: pointer;
-    height: 100%;
+
+  .platform-content {
     flex-direction: column;
-    align-items: center;
-    transition: all 0.3s ease;
-    flex: 0 0 calc(25% - 4rem); /* Each item takes 25% minus the gap */
-    max-width: 200px; /* Adjust as needed */
+    padding: 1.5rem 1rem;
   }
-  
-  .platform-item::after {
-    content: 'Click to explore';
-    position: absolute;
-    white-space: nowrap;
-    bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.8rem;
-    color: #6e45e2;
-    opacity: 0;
-    transition: all 0.3s ease;
-    font-weight: 500;
-  }
-  
-  .platform-item:hover::after {
-    opacity: 1;
-    bottom: -25px;
-  }
-  
-  .platform-logo {
-    width: 170px;
-    height: 170px;
-    object-fit: contain;
-    border-radius: 30px;
+
+  .platform-logo-container {
+    flex: 0 0 auto;
     margin-bottom: 1rem;
-    transition: all 0.3s ease;
-    filter: grayscale(20%);
-  }
-  
-  .platform-item:hover .platform-logo {
-    filter: grayscale(0%);
-    transform: scale(1.10);
-  }
-  
-  .platform-name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.692);
-    margin-top: 2px;
   }
 
-  .platform-item a {
-    text-decoration: none; /* Removes underline */
-    color: inherit; /* Inherits text color from parent */
-    outline: none; /* Removes focus outline (add your own focus styles if needed for accessibility) */
+  .platform-info {
+    padding-left: 0;
+    text-align: center;
   }
 
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .platforms-container {
-      flex-direction: column;
-      gap: 2rem;
-    }
-    
-    .main-title {
-      font-size: 2.5rem;
-    }
-
-    .main-title::after {
-      content: '';
-      display: block;
-      width: 200px;
-      height: 2px;
-      background: #e2b243;
-      margin: 2rem auto;
-      transition: all 0.2s ease;
-    }
-
-    .platform-logo {
-      width: 200px;
-      height: 100px;
-      border-radius: round;
-    }
+  .platform-meta {
+    flex-direction: column;
+    gap: 0.5rem;
   }
+
+  .platform-cta {
+    justify-content: center;
+    width: 100%;
+  }
+}
