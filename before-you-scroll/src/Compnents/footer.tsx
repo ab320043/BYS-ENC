@@ -104,7 +104,7 @@ const Footer = () => {
 
         <div className="creator-links">
           <h3 className="creator-title" style={{ color: currentStyle.color }}>Created by</h3>
-          <p className="creator-item" style={{ color: currentStyle.color }}>Website Developer - Abdallah Hussein</p>
+          <p className="creator-item" style={{ color: currentStyle.color }}>X Editor / Website Developer - Abdallah Hussein</p>
           <p className="creator-item" style={{ color: currentStyle.color }}>Snapchat Editor - Jadyn Alcorn</p>
           <p className="creator-item" style={{ color: currentStyle.color }}>Instagram Editor - John Mosquea</p>
           <p className="creator-item" style={{ color: currentStyle.color }}>YouTube Editor - Alex Davidson</p>
