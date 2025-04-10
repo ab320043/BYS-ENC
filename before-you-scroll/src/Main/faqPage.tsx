@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiChevronDown, FiHome, FiLock, FiShield, FiUser, FiGlobe, FiAlertCircle } from 'react-icons/fi';
+import { FiChevronDown, FiLock, FiShield, FiUser, FiGlobe, FiAlertCircle, FiArrowLeft } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import './FAQPage.css';
 
@@ -82,8 +82,8 @@ const FAQPage = () => {
     <div className="faq-container">
       <header className="faq-header">
         <button className="home-button" onClick={() => navigate('/')}>
-          <FiHome size={24} />
-          <span>Home</span>
+          <FiArrowLeft size={24} />
+          <span>Back</span>
         </button>
         <h1>Frequently Asked Questions</h1>
         <div className="header-spacer"></div> {/* For balance */}
