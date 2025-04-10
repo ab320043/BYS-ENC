@@ -16,7 +16,7 @@ const platformData = [
     id: 'snapchat',
     logo: snapLogo,
     name: 'Snapchat',
-    effectiveDate: '2023-05-15',
+    effectiveDate: '2025-04-7',
     lastUpdated: '2025-04-9',
     route: '/snapchat-terms'
   },
@@ -24,7 +24,7 @@ const platformData = [
     id: 'instagram',
     logo: instaLogo,
     name: 'Instagram',
-    effectiveDate: '2023-06-20',
+    effectiveDate: '2025-01-1',
     lastUpdated: '2025-04-9',
     route: '/instagram-terms'
   },
@@ -32,7 +32,7 @@ const platformData = [
     id: 'x',
     logo: xLogo,
     name: 'X (Twitter)',
-    effectiveDate: '2023-04-01',
+    effectiveDate: '2024-11-15',
     lastUpdated: '2025-04-9',
     route: '/x-terms'
   },
@@ -40,7 +40,7 @@ const platformData = [
     id: 'youtube',
     logo: youtubeLogo,
     name: 'YouTube',
-    effectiveDate: '2023-07-10',
+    effectiveDate: '2021-06-1',
     lastUpdated: '2025-04-9',
     route: '/youtube-terms'
   }
